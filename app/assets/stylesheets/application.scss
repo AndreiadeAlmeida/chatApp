@@ -12,18 +12,23 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css?family=Gudea');
  /* navbar */
 
    .side-menu {
+     background-color: #35394a;
+     box-shadow: 2px 2px 5px #333333;
      position: fixed;
      height: 100%;
      top: 0px;
      border: none;
+     border-radius: 0;
      .container {
        width: 250px;
      }
@@ -35,22 +40,30 @@
        .navbar-brand {
          a {
           text-decoration: none;
-          color: #333333;
-          transition: .3s;
+          color: rgb(175, 177, 190);
+          transition-duration:.2s;
          }
          a:hover {
-           color: #777777;
+           color: white;
          }
        }
      }
      .side-menu-container {
        .navbar-nav {
+         color: rgb(175, 177, 190);
          width: 100%;
          display: block;
          border: none;
          li {
            display: block;
            width: 100%;
+           a {
+             color: rgb(175, 177, 190);
+             transition-duration:.2s;
+           }
+           a:hover {
+             color: white;
+           }
          }
          #dropdown {
            border: 0;
@@ -75,10 +88,12 @@
          .navbar-header {
            margin-left: -15px;
          }
+         .navbar-nav {
+           margin-left: 2px;
+         }
        }
      }
    }
-
 
    /* info */
 
@@ -93,3 +108,165 @@
       float: right;
     }
   }
+
+  /* devise */
+
+/* ======= error messages devise ===== */
+#error_explanation {
+  border: 1px solid #531019;
+  background-color: white;
+  opacity: .8;
+  margin-bottom: 3px;
+  h2 {
+    padding: 4px;
+    margin-top: 0px;
+    font-size:14px;
+    background-color: #531019;
+  }
+  ul {
+    li {
+      font-size: 10px;
+      color: #751925;
+    }
+  }
+}
+
+// edit
+.devise-box {
+  width: 330px;
+  margin: auto;
+  background: #35394a;
+  color: white;
+  font-family: 'Gudea';
+  box-shadow: 5px 5px 10px #35394a;
+  h1{
+    padding-top: 20px;
+    padding-left: 10px;
+    color: rgb(175, 177, 190);
+    font-size:16px;
+  }
+  label, i {
+    color: rgb(175, 177, 190);
+    font-size:12px;
+    padding-left: 10px;
+  }
+  .input-group {
+    .form-control, span {
+      border-radius: 0;
+      opacity: .5;
+      border: none;
+    }
+  }
+  .submit-but {
+    padding-top: 15px;
+    width: 60%;
+    margin: auto;
+    .btn-lg {
+      border-radius: 10px;
+      padding:10px 30px;
+      color: #DC6180;
+      font-size:11px;
+      background-color: transparent;
+      border: 2px solid #DC6180;
+      transition-duration:.2s;
+    }
+    .btn-lg:hover {
+      background-color: #DC6180;
+      color: white;
+    }
+  }
+  .cancel {
+    width: 100%;
+    padding: 20px;
+    display: inline-flex;
+    p{
+      padding: 10px 15px;
+    }
+    .btn-danger {
+      border: 2px solid red;
+      color: red;
+      border-radius: 15px;
+      padding: 10px 15px;
+      font-size: 13px;
+      background-color: transparent;
+      transition-duration:.2s;
+    }
+    .btn-danger:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+  .back {
+    display: inline;
+    width: 20%;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: rgb(175, 177, 190);
+    a,
+    i {
+      text-decoration: none;
+      color: #35394a;
+      transition-duration:.2s;
+    }
+    a:hover {
+      border-bottom: 2px solid #35394a;
+    }
+  }
+}
+
+// Signin and up
+
+.register {
+  width: 330px;
+  margin: auto;
+  background: #35394a;
+  color: white;
+  font-family: 'Gudea';
+  box-shadow: 5px 5px 10px #35394a;
+  .form-heading {
+    padding: 15% 10% 10% 5%;
+    h3 {
+      padding: 10px;
+      display: inline;
+      a{
+        text-decoration: none;
+        color: rgb(175, 177, 190);
+      }
+      .active{
+        color: white;
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+  label, i {
+    color: rgb(175, 177, 190);
+    font-size:12px;
+    padding-left: 10px;
+  }
+  .input-group {
+    .form-control, span {
+      border-radius: 0;
+      opacity: .8;
+      border: none;
+    }
+  }
+  .submit-but {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 60%;
+    margin: auto;
+    .btn-lg {
+      border-radius: 20px;
+      padding:10px 30px;
+      color: #DC6180;
+      font-size:11px;
+      background-color: transparent;
+      border: 2px solid #DC6180;
+      transition-duration:.2s;
+    }
+    .btn-lg:hover {
+      background-color: #DC6180;
+      color: white;
+    }
+  }
+}

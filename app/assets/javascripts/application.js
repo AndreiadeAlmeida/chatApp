@@ -15,3 +15,10 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $("#notice").delay(1500).fadeOut(400);
+
+	$("#error_explanation").delay(1000).fadeOut(400);
+
+})

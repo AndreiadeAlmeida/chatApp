@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :chatroom_name %>
+  <div class="input-group">
+    <%= form.text_field :name, id: :chatroom_name, placeholder: 'Name' %>
   </div>
 
-  <div class="actions">
+  <div class="submit-but">
     <%= form.submit %>
   </div>
 <% end %>

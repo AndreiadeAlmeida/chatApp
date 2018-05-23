@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ==============
+// chatroom table
+// ==============
+
 .chatrooms-index {
   width: 90%;
   margin: auto;
@@ -109,6 +113,48 @@
     }
     a:hover {
       border-bottom: 2px solid #35394a;
+    }
+  }
+}
+
+// ========
+// chatroom
+// ========
+.chat {
+  width: 80%;
+  margin: auto;
+  .wrap {
+    margin-top: 150px;
+    margin-left: 50px;
+    .text-message {
+      background-color: white;
+      div {
+        padding: 20px;
+        span {
+          background-color: rgba(175, 177, 190, .3);
+          padding: 10px;
+          border-radius: 20px;
+        }
+      }
+    }
+    textarea {
+      width: 200px;
+      padding: 10px;
+      border-radius: 30px;
+      border: 2px solid #DC6180;
+    }
+  }
+  .edit-but {
+    float: right;
+    margin-top: 30px;
+    a {
+      padding: 5px;
+      text-decoration: none;
+      color: #333c63;
+      transition: .2s;
+    }
+    a:hover {
+      border-bottom: 2px solid #333c63;
     }
   }
 }

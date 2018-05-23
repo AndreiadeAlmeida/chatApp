@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
+<div class="row chat">
+  <div class="chat-title">
+    <h1 class="size">#<%= @chatroom.name %></h1>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @chatroom.name %>
-</p>
+<div class="wrap">
+    <div data-behavior='messages' class="text-message">
+      <% @messages.each do |message| %>
+        <div><strong><%= message.user.username %>: </strong> <span> <%= message.body %> </span> </div>
+      <% end %>
+    </div>
 
-<%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
-<%= link_to 'Back', chatrooms_path %>
+    <%= form_for [@chatroom, Message.new] do |f| %>
+    <%= f.text_area :body, rows:1, class:'form-control', placeholder: '...', autofocus: true%>
+    <% end %>
+</div>
+
+
+<div class="edit-but">
+  <% if signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
+  <% end %>
+
+    <%= link_to 'Back', chatrooms_path %>
+</div>
+</div>

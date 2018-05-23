@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default side-menu" role="navigation">
+
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- brand -->
+        <div class="navbar-brand">
+          <%= link_to chatrooms_path do%>
+          <i class="fa fa-fw fa-edit"></i> | ChatRoom
+          <% end %>
+        </div>
+      </div><!-- navbar-header -->
+
+      <div class="side-menu-container" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <%if user_signed_in? %>
+          <!-- <%= yield :right_nav %> -->
+          <li class="panel panel-default" id="dropdown">
+            <a data-toggle="collapse" href="#user-active">
+              <i class="fa fa-fw fa-user"></i><%= current_user.username %><span class="caret"></span>
+            </a>
+            <!-- dropdown -->
+            <div class="panel-collapse collapse" id="user-active">
+              <div class="panel-body">
+                <ul class="nav navbar-nav" id="user-active">
+                  <li>
+                    <%= link_to edit_user_registration_path do %>
+                    <i class="fa fa-fw fa-edit"></i>Settings
+                    <% end %>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete do%>
+                    <i class="fa fa-fw fa-power-off"></i>Logout
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!-- chatrooms -->
+          <li class="title">
+            <i class="fa fa-users"></i> Chatroom(s)
+            <!-- dropdown -->
+            <ul class="nav navbar-nav" id="chatrooms-active">
+              <% current_user.chatrooms.each do |chatroom| %>
+              <li><%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></li>
+              <% end %>
+            </ul>
+          </li>
+
+          <% else %>
+          <li class="panel panel-default" id="dropdown">
+            <a data-toggle="collapse" href="#register">
+              <i class="fa fa-fw fa-user"></i>User<span class="caret"></span>
+            </a>
+            <!-- dropdown -->
+            <div class="panel-collapse collapse" id="register">
+              <div class="panel-body">
+                <ul class="nav navbar-nav" id="register">
+                  <li>
+                    <%= link_to new_user_registration_path do %>
+                    <i class="fa fa-fw fa-user-plus"></i> Register
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_user_session_path do %>
+                    <i class="fa fa-fw fa-user"></i> Login
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div><!-- side-menu-container -->
+    </div>
+  </nav>
+
+  <section class="container-fluid main">
+    <div class="row">
+      <div class="col-sm-offset-4">
+        <%= yield %>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

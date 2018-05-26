@@ -3,13 +3,15 @@ class MessagesController < ApplicationController
   before_action :set_chatroom
 
   def create
-    message = @chatroom.messages.new(message_params)
-    message.user = current_user
+    # @message = @chatroom.messages.new(message_params)
+    # @message.user = current_user
+    #
+    # respond_to do |format|
+    #   @message.save
+    #   format.html {redirect_to @chatroom}
+    #   format.js
+    # end
 
-    respond_to do |format|
-      @message.save
-      format.js
-    end
   end
 
   private

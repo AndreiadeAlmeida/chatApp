@@ -1,6 +1,20 @@
-<h1>Editing Chatroom</h1>
+<div class="row">
+  <div class="wrap editchatroom">
+    <div class="form-heading ">
+      <h1>Editing Chatroom</h1>
+    </div>
+    <hr>
 
-<%= render 'form', chatroom: @chatroom %>
+    <div class="form-body">
+      <%= render 'form', chatroom: @chatroom %>
+    </div>
+    <div class="show">
+      <%= link_to 'Show', @chatroom %>
+    </div>
+    <hr>
 
-<%= link_to 'Show', @chatroom %> |
-<%= link_to 'Back', chatrooms_path %>
+    <div class="back">
+      <i class="fa fa-fw fa-angle-left"></i> <%= link_to "Back", chatrooms_path %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 $(document).on "turbolinks:load", ->
-  $('#new_message').on "keypress", (e) ->
-    if e && e.which == 13
+  $("#new_message").on "submit", (e) ->
       e.preventDefault()
-      $(this).submit()
+
+      chatroom_id = $("[data-behavior='messages']").data("chatroom-id")
+      body        = $("#message_body")
+
+      App.chatrooms.send_message(chatroom_id, body.val())
+
+      body.val("")

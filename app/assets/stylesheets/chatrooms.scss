@@ -117,6 +117,94 @@
   }
 }
 
+// editchatroom page
+.editchatroom {
+  height: 375px;
+  width: 330px;
+  margin: auto;
+  background: #35394a;
+  color: white;
+  font-family: 'Gudea';
+  box-shadow: 5px 5px 10px #35394a;
+  .form-heading {
+    padding: 5% 10% 5% 5%;
+  }
+  .form-body {
+    form {
+      .input-group {
+        width: 100%;
+        #chatroom_name {
+          width: 80%;
+          margin-left: 30px;
+          padding: 10px;
+          height: 40px;
+          color: black;
+          border-radius: 0;
+          opacity: .8;
+          border: none;
+        }
+      }
+      .submit-but {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 50%;
+        margin: auto;
+        input {
+          margin: auto;
+          border-radius: 20px;
+          padding:10px 30px;
+          color: #DC6180;
+          font-size:11px;
+          background-color: transparent;
+          border: 2px solid #DC6180;
+          transition-duration:.2s;
+        }
+        input:hover{
+          color: white;
+          background-color: #DC6180;
+        }
+      }
+    }
+  }
+  .show {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 30%;
+    margin: auto;
+    a {
+      text-decoration: none;
+      margin: auto;
+      border-radius: 20px;
+      padding:10px 30px;
+      color: #8e94bc;
+      font-size:11px;
+      background-color: transparent;
+      border: 2px solid #8e94bc;
+      transition-duration:.2s;
+    }
+    a:hover {
+      color: white;
+      background-color: #8e94bc;
+    }
+  }
+  .back {
+    display: inline;
+    width: 20%;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: rgb(175, 177, 190);
+    a,
+    i {
+      text-decoration: none;
+      color: #35394a;
+      transition-duration:.2s;
+    }
+    a:hover {
+      border-bottom: 2px solid #35394a;
+    }
+  }
+}
+
 // ========
 // chatroom
 // ========
@@ -137,11 +225,32 @@
         }
       }
     }
-    textarea {
-      width: 200px;
-      padding: 10px;
-      border-radius: 30px;
-      border: 2px solid #DC6180;
+    .new_message {
+      display: flex;
+      textarea {
+        width: 200px;
+        padding: 10px;
+        border-radius: 30px;
+        border: 2px solid #DC6180;
+      }
+      .btn {
+        margin-left: 5px;
+        border-radius: 30px;
+        background-color: transparent;
+        border: 2px solid #DC6180;
+        span {
+          color: #DC6180;
+        }
+      }
+      .btn:hover {
+        background-color: #DC6180;
+        span {
+          color: white;
+        }
+      }
+      .btn:hover:focus {
+        outline: none;
+      }
     }
   }
   .edit-but {
